@@ -14,7 +14,7 @@ export default class BlogForm extends Component {
       blog_status: "",
       content: "",
       featured_image: "",
-      apiUrL: "https://andrewgritten.devcamp.space/portfolio/portfolio_blogs/",
+      apiUrl: "https://andrewgritten.devcamp.space/portfolio/portfolio_blogs",
       apiAction: "post"
     };
 
@@ -54,7 +54,9 @@ export default class BlogForm extends Component {
         title: this.props.blog.title,
         blog_status: this.props.blog.blog_status,
         content: this.props.blog.content,
-        apiUrl: `https://andrewgritten.devcamp.space/portfolio/portfolio_blogs/${this.props.blog.id}`,
+        apiUrl: `https://andrewgritten.devcamp.space/portfolio/portfolio_blogs/${
+          this.props.blog.id
+        }`,
         apiAction: "patch"
       });
     }
@@ -121,7 +123,8 @@ export default class BlogForm extends Component {
           featured_image: ""
         });
 
-        if(this.props.editMode) {
+        if (this.props.editMode) {
+          // Update blog detail
           this.props.handleUpdateFormSubmission(response.data.portfolio_blog);
         } else {
           this.props.handleSuccessfullFormSubmission(
